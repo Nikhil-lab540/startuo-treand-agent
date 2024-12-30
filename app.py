@@ -1,7 +1,7 @@
 import streamlit as st
 from phi.agent import Agent
 from phi.tools.duckduckgo import DuckDuckGo
-from phi.model.anthropic import Claude
+from phi.model.google import Gemini
 from phi.tools.newspaper4k import Newspaper4k
 from phi.tools import Tool
 import logging
@@ -13,7 +13,7 @@ st.title("AI Startup Trend Analysis Agent 📈")
 st.caption("Get the latest trend analysis and startup opportunities based on your topic of interest in a click!.")
 
 topic = st.text_input("Enter the area of interest for your Startup:")
-anthropic_api_key = st.sidebar.text_input("Enter Anthropic API Key", type="password")
+gemini_api_key = st.sidebar.text_input("Enter gemini API Key", type="password")
 def hide_streamlit_style():
     st.markdown(
         """
@@ -28,13 +28,13 @@ def hide_streamlit_style():
 
 hide_streamlit_style()
 if st.button("Generate Analysis"):
-    if not anthropic_api_key:
+    if not gemini_api_key:
         st.warning("Please enter the required API key.")
     else:
         with st.spinner("Processing your request..."):
             try:
                 # Initialize Anthropic model
-                anthropic_model = Claude(id ="claude-3-5-sonnet-20240620",api_key=anthropic_api_key)
+                gemini_model = Gemini(id="gemini-1.5-flash", api_key=gemini_api_key)
 
                 # Define News Collector Agent - Duckduckgo_search tool enables an Agent to search the web for information.
                 search_tool = DuckDuckGo(search=True, news=True, fixed_max_results=5)
