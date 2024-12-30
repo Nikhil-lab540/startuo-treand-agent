@@ -107,4 +107,4 @@ if st.button("Generate Analysis"):
             except Exception as e:
                 st.error(f"An error occurred: {e}")
 else:
-    st.info("Enter the topic and API keys, then click 'Generate Analysis' to start.")
+    st.info("Enter the topic then click 'Generate Analysis' to start.")
