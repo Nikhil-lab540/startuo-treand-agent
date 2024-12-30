@@ -13,7 +13,7 @@ st.title("AI Startup Trend Analysis Agent 📈")
 st.caption("Get the latest trend analysis and startup opportunities based on your topic of interest in a click!.")
 
 topic = st.text_input("Enter the area of interest for your Startup:")
-gemini_api_key = st.sidebar.text_input("Enter gemini API Key", type="password")
+gemini_api_key = "AIzaSyCmk2xo13bMrxlwrpIzf20Qpgbj_9Wcklo"
 def hide_streamlit_style():
     st.markdown(
         """
@@ -28,9 +28,7 @@ def hide_streamlit_style():
 
 hide_streamlit_style()
 if st.button("Generate Analysis"):
-    if not gemini_api_key:
-        st.warning("Please enter the required API key.")
-    else:
+
         with st.spinner("Processing your request..."):
             try:
                 # Initialize Anthropic model
