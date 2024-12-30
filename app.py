@@ -40,7 +40,7 @@ if st.button("Generate Analysis"):
                     name="News Collector",
                     role="Collects recent news articles on the given topic",
                     tools=[search_tool],
-                    model=anthropic_model,
+                    model=gemini_model,
                     instructions=["Gather latest articles on the topic"],
                     show_tool_calls=True,
                     markdown=True,
@@ -52,7 +52,7 @@ if st.button("Generate Analysis"):
                     name="Summary Writer",
                     role="Summarizes collected news articles",
                     tools=[news_tool],
-                    model=anthropic_model,
+                    model=gemini_model,
                     instructions=["Provide concise summaries of the articles"],
                     show_tool_calls=True,
                     markdown=True,
@@ -62,7 +62,7 @@ if st.button("Generate Analysis"):
                 trend_analyzer = Agent(
                     name="Trend Analyzer",
                     role="Analyzes trends from summaries",
-                    model=anthropic_model,
+                    model=gemini_model,
                     instructions=["Identify emerging trends and startup opportunities"],
                     show_tool_calls=True,
                     markdown=True,
@@ -81,6 +81,7 @@ if st.button("Generate Analysis"):
                     ],
                     show_tool_calls=True,
                     markdown=True,
+                    model =gemini_model,
                 )
 
                 # Executing the workflow
